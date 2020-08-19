@@ -22,9 +22,7 @@ const App = () => {
     setSavedList([...savedList, movie]);
   };
 
-  useEffect(() => {
-    getMovieList();
-  }, [movieList]);
+  useEffect(() => getMovieList(), [movieList]);
 
   return (
     <>

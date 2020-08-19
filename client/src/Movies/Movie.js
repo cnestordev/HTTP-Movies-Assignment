@@ -51,7 +51,6 @@ function Movie({ addToSavedList }) {
       </button>
       <button onClick={deleteItem}>
         Delete
-        {/* <Link to={`/api/movies/${params.id}`} >Delete</Link> */}
       </button>
     </div>
   );

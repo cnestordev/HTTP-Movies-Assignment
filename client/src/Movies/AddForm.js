@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { useHistory, useParams } from 'react-router-dom'
+import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 
 function AddForm(props) {
@@ -24,18 +24,6 @@ function AddForm(props) {
         })
     }
 
-    const handleSubmit = e => {
-        e.preventDefault()
-        axios.post('http://localhost:5000/api/movies', form)
-            .then(res => {
-                setForm(initialState)
-                history.push('/')
-            })
-            .catch(err => {
-                console.log(err)
-            })
-    }
-
     const handleActors = e => {
         const { name, value } = e.target
         const newArr = [...form.stars]
@@ -44,6 +32,16 @@ function AddForm(props) {
             ...form,
             stars: newArr
         })
+    }
+
+    const handleSubmit = e => {
+        e.preventDefault()
+        axios.post('http://localhost:5000/api/movies', form)
+            .then(res => {
+                setForm(initialState)
+                history.push('/')
+            })
+            .catch(err => console.log(err))
     }
 
     return (
